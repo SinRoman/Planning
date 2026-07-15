@@ -1,0 +1,12 @@
+relationship a2d19879-9692-0772-cfa6-91c1aa6fe846
+	fromColumn: fact_actualrevenue.ProductID
+	toColumn: dim_product.ProductID
+
+relationship e9df31e7-890d-5f43-f55f-080b3ed8983c
+	fromColumn: fact_actualrevenue.DateKey
+	toColumn: dim_date.DateKey
+
+relationship aedaedfc-e416-78f1-b642-7e00b9ea8b17
+	fromColumn: fact_actualrevenue.RegionID
+	toColumn: dim_region.RegionID
+

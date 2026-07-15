@@ -1,0 +1,6 @@
+CREATE USER [romansingele@MngEnvMCAP956730.onmicrosoft.com]
+    WITH SID = 0x901C93ADC6A68943A2507FDC4D2CDD42, TYPE = E;
+
+
+GO
+

@@ -1,0 +1,39 @@
+table dim_region
+	lineageTag: cdff6249-8ce7-4172-aec0-ef972a16a7ca
+	sourceLineageTag: [dbo].[dim_region]
+
+	column RegionID
+		dataType: int64
+		formatString: 0
+		lineageTag: cbe99080-8cdd-49ba-a4a7-157a5c089dfe
+		sourceLineageTag: RegionID
+		summarizeBy: none
+		sourceColumn: RegionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Continent
+		dataType: string
+		lineageTag: 0de1bca7-cb4e-4663-b93b-77b52f5b6902
+		sourceLineageTag: Continent
+		summarizeBy: none
+		sourceColumn: Continent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 0ba67c19-1abc-43d0-ae57-a5554c6b0c96
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_region = entity
+		mode: directLake
+		source
+			entityName: dim_region
+			schemaName: dbo
+			expressionSource: 'DirectLake - Revenue'
+

@@ -1,0 +1,91 @@
+table fact_actualrevenue
+	lineageTag: f107e25f-fab6-4ad4-9596-ca354d83fca1
+	sourceLineageTag: [dbo].[fact_actualrevenue]
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c5bdd0fa-3e47-4825-bc57-3460f7509184
+		sourceLineageTag: DateKey
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dcc85655-bf13-45b7-9594-de7d27318afc
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualRevenue
+		dataType: double
+		formatString: 0
+		lineageTag: 02441af3-4bc3-49df-a684-3f6e3b0a152d
+		sourceLineageTag: ActualRevenue
+		summarizeBy: sum
+		sourceColumn: ActualRevenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: df89248b-1ca2-44b3-8e2b-568a6d7df327
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b57e5eca-de6a-422d-8f92-22821ca9f8b0
+		sourceLineageTag: RegionID
+		summarizeBy: none
+		sourceColumn: RegionID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 58d355d1-c531-43e0-a1c2-8b84113ab575
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		lineageTag: c912dbb1-ef06-4ab0-b5d3-b16d9d4234aa
+		sourceLineageTag: UnitPrice
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_actualrevenue = entity
+		mode: directLake
+		source
+			entityName: fact_actualrevenue
+			schemaName: dbo
+			expressionSource: 'DirectLake - Revenue'
+

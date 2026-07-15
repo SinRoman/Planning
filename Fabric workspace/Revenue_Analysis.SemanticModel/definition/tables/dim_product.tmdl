@@ -1,0 +1,39 @@
+table dim_product
+	lineageTag: aac64367-179d-48f2-9ecc-fc5e567e0220
+	sourceLineageTag: [dbo].[dim_product]
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e32ff73-4168-4fb6-a867-353a6b968edc
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 2580b423-70b7-4c21-a71e-e29b2af11570
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategory
+		dataType: string
+		lineageTag: 60b9e8b1-8c6a-4eb2-a0a5-a18475d96010
+		sourceLineageTag: ProductCategory
+		summarizeBy: none
+		sourceColumn: ProductCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			schemaName: dbo
+			expressionSource: 'DirectLake - Revenue'
+
